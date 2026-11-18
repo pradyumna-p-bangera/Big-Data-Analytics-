@@ -36,6 +36,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 1.25rem;
     margin-bottom: 1.5rem;
@@ -101,6 +103,12 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.kpi-card:hover {
+    border-color: var(--accent-blue);
+    transform: translateY(-2px);
 }
 
 .kpi-icon {
@@ -153,6 +161,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     margin-bottom: 1.25rem;
     padding-bottom: 0.75rem;
     border-bottom: 1px solid var(--border-color);
@@ -189,6 +199,13 @@ body {
     font-family: inherit;
     font-size: 0.9rem;
     cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.controls select:hover,
+.controls select:focus {
+    border-color: var(--accent-blue);
+    outline: none;
 }
 
 .chart-wrapper {
@@ -216,11 +233,16 @@ body {
 }
 
 .data-table th {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--bg-card);
     color: var(--text-secondary);
     font-weight: 600;
     position: sticky;
     top: 0;
+    z-index: 1;
+}
+
+.data-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .data-table td.num {
@@ -228,13 +250,16 @@ body {
     font-variant-numeric: tabular-nums;
 }
 
-/* Footer */
+/* Footer & Contributors */
 .dashboard-footer {
     border-top: 1px solid var(--border-color);
     padding-top: 1.25rem;
     text-align: center;
     color: var(--text-secondary);
     font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
 }
 
 .dashboard-footer code {
@@ -244,3 +269,28 @@ body {
     color: var(--accent-cyan);
 }
 
+.contributors-bar {
+    margin-top: 0.65rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+}
+
+.contributors-bar strong {
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+.contributors-bar span {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+}

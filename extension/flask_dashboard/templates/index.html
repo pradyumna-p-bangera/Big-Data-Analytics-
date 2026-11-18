@@ -15,8 +15,8 @@
         <header class="dashboard-header">
             <div class="header-content">
                 <span class="badge">BCS714D Big Data Analytics — Track B Practical Extension</span>
-                <h1>Global Energy Analytics & Transition Dashboard</h1>
-                <p class="subtitle">MongoDB Analytics Pipeline & Interactive Visualization (OWID Energy Dataset 2000–2024)</p>
+                <h1>Global Energy Analytics &amp; Transition Dashboard</h1>
+                <p class="subtitle">MongoDB Analytics Pipeline &amp; Interactive Visualization (OWID Energy Dataset 2000–2024)</p>
             </div>
             <div class="header-status">
                 <span class="status-dot"></span>
@@ -126,6 +126,11 @@
         <footer class="dashboard-footer">
             <p>BCS714D Big Data Analytics Assignment — Track B Practical Engineering Deliverable</p>
             <p>Database: <code>energy_analytics</code> | Engine: MongoDB 9.0 + Python Flask REST API</p>
+            <div class="contributors-bar" style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(148, 163, 184, 0.2); font-size: 0.875rem;">
+                <strong>Project Contributors:</strong>
+                <span>Pradyumna P Bangera (1JS23CS111)</span> &bull;
+                <span>Pavan KR (1JS23CS105)</span>
+            </div>
         </footer>
     </div>
 
@@ -159,7 +164,7 @@
                     const select = document.getElementById('country-select');
                     const currentVal = select.value;
                     select.innerHTML = '';
-                    
+
                     const defaults = ["India", "China", "United States", "Germany", "Brazil", "United Kingdom", "Japan", "France"];
                     defaults.forEach(c => {
                         if (data.countries.includes(c)) {
@@ -171,7 +176,6 @@
                         }
                     });
 
-                    // Add remaining countries
                     data.countries.forEach(c => {
                         if (!defaults.includes(c)) {
                             const opt = document.createElement('option');
@@ -204,7 +208,6 @@
             const renewables = data.map(d => d.renewables_energy_twh);
             const solar = data.map(d => d.solar_electricity_twh);
             const wind = data.map(d => d.wind_electricity_twh);
-            const carbon = data.map(d => d.electricity_carbon_intensity_gco2eq_per_kwh);
 
             // Chart 1: Total Energy vs Renewables
             const ctx1 = document.getElementById('energyTrendChart').getContext('2d');
@@ -342,4 +345,3 @@
     </script>
 </body>
 </html>
-
